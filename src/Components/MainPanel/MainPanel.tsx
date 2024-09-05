@@ -1,11 +1,7 @@
 import React from "react";
 import './MainPanel.css';
+import { Album } from "../../types";
 
-type Album = {
-    userId: number;
-    id: number;
-    title: string;
-}
 
 const MainPanel = () => {
     const [results, setResults] = React.useState<Album[] | null>([]);
