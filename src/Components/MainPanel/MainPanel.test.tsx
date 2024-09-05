@@ -29,7 +29,6 @@ test('fetches data on button click', async () => {
 });
 
 test('mocks fetch call', async () => {
-
     const albums: Album[] = [
         { userId: 1, id: 1, title: "Album 1" },
         { userId: 1, id: 2, title: "Album 2" }

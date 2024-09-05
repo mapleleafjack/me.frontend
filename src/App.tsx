@@ -4,7 +4,7 @@ import MainPanel from './Components/MainPanel/MainPanel';
 
 function App() {
   return (
-    <div data-testid="main-panel" >
+    <div id="background" data-testid="main-panel" >
       <MainPanel/>
     </div>
   );
