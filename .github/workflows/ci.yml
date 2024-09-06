@@ -41,4 +41,4 @@ jobs:
         run: aws s3 sync build/ s3://me-frontend-bucket --delete
 
       - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation --distribution-id YOUR_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id E1F6T02STMJGS9 --paths "/*"
