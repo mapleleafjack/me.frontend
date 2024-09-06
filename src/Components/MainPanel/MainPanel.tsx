@@ -1,8 +1,8 @@
 import React from "react";
 import './MainPanel.css';
-import { Project } from "../../types";
-import AddProjectWindow from "../AddProjectWindow/AddProjectWindow";
-import { fetchProjects } from "../../api/project";
+import { fetchProjects } from "api/project";
+import { Project } from "types";
+import AddProjectWindow from "Components/AddProjectWindow/AddProjectWindow";
 
 const MainPanel = () => {
     const [results, setResults] = React.useState<Project[] | null>([]);

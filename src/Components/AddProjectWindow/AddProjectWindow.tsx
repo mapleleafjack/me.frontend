@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './AddProjectWindow.css';
-import { addProject } from "../../api/project";
+import { addProject } from "api/project";
 
 interface AddProjectWindowProps {
     onClose: () => void;

@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --silent",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -66,10 +66,14 @@
       "^.+\\.(ts|tsx)$": "ts-jest"
     },
     "moduleNameMapper": {
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+      "^api/(.*)$": "<rootDir>/src/api/$1", 
+      "^Components/(.*)$": "<rootDir>/src/Components/$1", 
+      "^types/(.*)$": "<rootDir>/src/types/$1" 
     },
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"
-    ]
+    ],
+    "moduleDirectories": ["node_modules", "src"] 
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import AddProjectWindow from './AddProjectWindow';
-import { addProject } from '../../api/project';
+import { addProject } from 'api/project';
 
 // Mock the addProject API function
 jest.mock('../../api/project', () => ({

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Project } from '../types';
+import { Project } from 'types';
 
 // Fetch projects function with specified return type
 export const fetchProjects = async (): Promise<Project[]> => {
