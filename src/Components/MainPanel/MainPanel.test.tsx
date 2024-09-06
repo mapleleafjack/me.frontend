@@ -2,7 +2,7 @@ import React, { act } from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MainPanel from './MainPanel';
-import { Album } from '../../types';
+import { Project } from '../../types';
 
 test('renders main panel text', () => {
     render(<MainPanel />);
@@ -29,9 +29,9 @@ test('fetches data on button click', async () => {
 });
 
 test('mocks fetch call', async () => {
-    const albums: Album[] = [
-        { userId: 1, id: 1, title: "Album 1" },
-        { userId: 1, id: 2, title: "Album 2" }
+    const albums: Project[] = [
+        { id: 1, description: "Album 1" },
+        { id: 2, description: "Album 2" }
     ] 
 
     const mockData = albums;

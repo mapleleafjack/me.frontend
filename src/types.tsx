@@ -1,5 +1,4 @@
-export type Album = {
-    userId: number;
+export type Project = {
     id: number;
-    title: string;
+    description: string;
 }
