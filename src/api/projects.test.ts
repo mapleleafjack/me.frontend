@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { Project } from '../types';
-import { addProject, fetchProjects } from './project';
+import { addProject, deleteProject, fetchProjects } from './project';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -61,6 +61,29 @@ describe('Project Service', () => {
 
       // Assertions
       await expect(addProject(newProjectData)).rejects.toThrow('Failed to add project');
+    });
+  });
+
+  describe('deleteProject', () => {
+    it('should delete a project successfully', async () => {
+      const projectId = 1;
+
+      await expect(deleteProject(projectId)).resolves.toBeUndefined();
+
+      // Assertions
+      expect(mockedAxios.delete).toHaveBeenCalledWith(
+        `http://me-backend-lb-1123215968.eu-west-1.elb.amazonaws.com/projects/${projectId}`
+      );
+    });
+
+    it('should handle errors while deleting a project', async () => {
+      const mockError = new Error('Failed to delete project');
+      const projectId = 1;
+
+      mockedAxios.delete.mockRejectedValueOnce(mockError);
+
+      // Assertions
+      await expect(deleteProject(projectId)).rejects.toThrow('Failed to delete project');
     });
   });
 });

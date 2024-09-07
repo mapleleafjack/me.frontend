@@ -32,3 +32,15 @@ export const addProject = async (projectData: Omit<Project, 'id'>): Promise<Proj
         throw error; // Re-throw the error to handle it in the component
     }
 };
+
+// Delete project function with specified parameter type
+export const deleteProject = async (projectId: number): Promise<void> => {
+    try {
+        await axios.delete(
+            `http://me-backend-lb-1123215968.eu-west-1.elb.amazonaws.com/projects/${projectId}`
+        );
+    } catch (error) {
+        console.error("Error:", error);
+        throw error; // Re-throw the error to handle it in the component
+    }
+};

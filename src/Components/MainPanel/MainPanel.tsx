@@ -3,6 +3,7 @@ import './MainPanel.css';
 import { fetchProjects } from "api/project";
 import { Project } from "types";
 import AddProjectWindow from "Components/AddProjectWindow/AddProjectWindow";
+import ProjectPanel from "Components/ProjectPanel/ProjectPanel";
 
 const MainPanel = () => {
     const [results, setResults] = React.useState<Project[] | null>([]);
@@ -34,7 +35,7 @@ const MainPanel = () => {
             <pre id="results">
                 {results ? results.length > 0 ? (
                     results.map(project => (
-                        <div key={project.id}>{project.description}</div>
+                        <ProjectPanel key={project.id} project={project} refreshProjects={refetchProjects}/>
                     ))
                 ) : "No projects" : "Loading"}
             </pre>
