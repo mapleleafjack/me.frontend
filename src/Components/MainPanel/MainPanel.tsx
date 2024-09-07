@@ -8,23 +8,21 @@ import ProjectPanel from "Components/ProjectPanel/ProjectPanel";
 const MainPanel = () => {
     const [results, setResults] = React.useState<Project[] | null>([]);
     const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [isAboutMeOpen, setIsAboutMeOpen] = React.useState(false);
 
-    // Function to refetch projects
     const refetchProjects = () => {
         fetchProjects().then((data) => {
             setResults(data);
         });
     };
 
-    // Fetch projects on component mount
     React.useEffect(() => {
         refetchProjects();
     }, []);
 
-    // Function to handle the closing of the modal
     const handleModalClose = () => {
         setIsModalOpen(false);
-        refetchProjects(); // Refetch the results after adding a new project
+        refetchProjects(); 
     };
 
     return (
@@ -43,11 +41,22 @@ const MainPanel = () => {
             {/* Corrected the Fetch button to call the refetchProjects function */}
             <button id="fetch-button" onClick={refetchProjects}>Fetch</button>
             <button id="open-modal-button" onClick={() => setIsModalOpen(true)}>Add Project</button>
+            <button id="about-me-button" onClick={() => setIsAboutMeOpen(true)}>About Me</button>
 
             {isModalOpen && (
-                <div className="modal">
+                <div className="modal" data-testid="add-project">
                     <div className="modal-content">
                         <AddProjectWindow onClose={handleModalClose} />
+                    </div>
+                </div>
+            )}
+
+            {isAboutMeOpen && (
+                <div className="modal" data-testid="about-me">
+                    <div className="modal-content">
+                        <h2>About Me</h2>
+                        <p>I am a software developer.</p>
+                        <button onClick={() => setIsAboutMeOpen(false)}>Close</button>
                     </div>
                 </div>
             )}

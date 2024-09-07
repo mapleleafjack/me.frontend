@@ -1,0 +1,13 @@
+.project-row {
+    &:hover {
+        color:red;
+
+        span {
+            visibility: visible;
+        }
+    }
+
+    span {
+        visibility: hidden;
+    }
+}

@@ -1,6 +1,7 @@
     import React from 'react';
     import { Project } from '../../types';
     import { deleteProject } from 'api/project';
+    import './ProjectPanel.scss';
 
     interface ProjectPanelProps {
         project: Project;
@@ -18,7 +19,7 @@
         };
 
         return (
-            <div onClick={() => handleDeleteProject()}>{project.description} <span>X</span></div>
+            <div className={"project-row"} onClick={() => handleDeleteProject()}>{project.description} <span>X</span></div>
         );
     };
 

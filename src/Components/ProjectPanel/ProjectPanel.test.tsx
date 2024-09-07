@@ -14,8 +14,7 @@ test('renders project description', () => {
 test('calls refreshProjects on click', async () => {
     const project = { id: 1, description: 'Project A' };
     const refreshProjects = jest.fn();
-
-    // Spy on deleteProject and mock its implementation for this test
+    
     const deleteProjectMock = jest.spyOn(require('api/project'), 'deleteProject').mockResolvedValueOnce(null);
 
     render(<ProjectPanel project={project} refreshProjects={refreshProjects} />);
